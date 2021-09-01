@@ -12,9 +12,18 @@ int gcd_naive(int a, int b) {
   return current_gcd;
 }
 
+long long gcd_efficient(long long a, long long b) {
+  long long a_p;
+  if(b==0)
+    return a;
+  a_p = a%b;
+  return gcd_efficient(b,a_p);
+}
+
 int main() {
-  int a, b;
+  long long a, b;
   std::cin >> a >> b;
-  std::cout << gcd_naive(a, b) << std::endl;
+//  std::cout << gcd_naive(a, b) << std::endl;
+  std::cout <<gcd_efficient(a, b) <<std::endl;
   return 0;
 }
